@@ -1,20 +1,17 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" ng-app="toDoApp">
-<head>
-  <meta charset="utf-8">
-  <title>Angular with no TDD</title>
-  <script type="text/javascript" src="angular.min.js" ></script>
-  <script type="text/javascript" src="app.js"></script>
-</head>
+  <head>
+    <meta charset="utf-8">
+    <title>title</title>
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="controllers.js"></script>
+  </head>
 
-<body>
+  <body>
+    <div ng-controller="ToDoController as controller">
+      {{ controller.todo }}
+    </div>
+  </body>
 
-  <div>
-    <label>Name:</label>
-    <input type="text" ng-model="yourName" placeholder="Enter a name here">
-    <hr>
-    <h1>Hello {{yourName}}!</h1>
-  </div>
-
-</body>
 </html>
