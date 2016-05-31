@@ -1,3 +1,3 @@
 toDoApp.controller('ToDoController', function() {
-  this.todo = "ToDo1";
+  this.todos = [{task: 'task1', completed: false},{task: 'task2', completed: true}];
 });
