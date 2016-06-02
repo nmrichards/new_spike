@@ -6,8 +6,36 @@ describe("app", function() {
 
   it("should have a to do item called 'ToDo1'", function() {
     browser.get('/');
-    var todo = $('#todo');
-    expect(todo.getText()).toEqual("ToDo1")
+    var todo = $('#todo p');
+    expect(todo.getText()).toContain("ToDo1")
+  })
+
+  it("should have a to do item called 'ToDo2'", function() {
+    browser.get('/');
+    var todo = $$('#todo p').last().getText();
+    expect(todo).toContain("ToDo2")
+  })
+
+  it("should be able to add a to do item", function() {
+    browser.get('/');
+     $('#new-todo-name').sendKeys('Study some Javascript');
+     $('#add-todo').click();
+     var todo = $$('#todo p').last().getText();
+     expect(todo).toContain("Study some Javascript")
+  })
+
+  it("should be able to remove a to do item", function() {
+    browser.get('/');
+    $('#remove-todo').click();
+    var todo = $$('#todo p').last().getText();
+    expect(todo).toContain("ToDo1: completed")
+  })
+
+  it("should be able to mark a to do as complete", function() {
+    browser.get('/');
+    var todo = $$('#todo p').last();
+    todo.element(by.css('.complete')).click();
+    expect(todo.getText()).toEqual("ToDo2: completed")
   })
 
 });
